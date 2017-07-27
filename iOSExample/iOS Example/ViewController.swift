@@ -35,9 +35,11 @@ private let picture2URL = Bundle.main.url(forResource: "picture2", withExtension
 
 class ViewController: UIViewController {
 
+    /*
     @IBOutlet var angleXZSlider: UISlider!
     @IBOutlet var angleYSlider: UISlider!
     @IBOutlet var fovSlider: UISlider!
+ */
 
     @IBOutlet var image360Controller: Image360Controller!
     
@@ -47,41 +49,55 @@ class ViewController: UIViewController {
     
     @IBOutlet var image360Controller4: Image360Controller!
 
+    
+    @IBOutlet weak var container1: UIView!
+    
+    var whatType: Int = 0
+    
 
-    @IBOutlet var pictureSegmentedControl: UISegmentedControl!
+    //@IBOutlet var pictureSegmentedControl: UISegmentedControl!
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let identifier = segue.identifier {
             switch identifier {
-            case "image360":
+            case "image1":
                 if let destination = segue.destination as? Image360Controller {
                     self.image360Controller = destination
-                    self.image360Controller.imageView.observer = self
+                    //self.image360Controller.imageView.observer = self as! Image360ViewObserver
                 }
                 
             case "image2":
                 if let destination = segue.destination as? Image360Controller {
                     self.image360Controller2 = destination
-                    self.image360Controller2.imageView.observer = self
+                    //self.image360Controller2.imageView.observer = self as! Image360ViewObserver
                 }
             case "image3":
                 if let destination = segue.destination as? Image360Controller {
                     self.image360Controller3 = destination
-                    self.image360Controller3.imageView.observer = self
+                    //self.image360Controller3.imageView.observer = self as! Image360ViewObserver
                 }
             case "image4":
                 if let destination = segue.destination as? Image360Controller {
                     self.image360Controller4 = destination
-                    self.image360Controller4.imageView.observer = self
+                    //self.image360Controller4.imageView.observer = self as! Image360ViewObserver
                 }
-            case "settings":
-                if let destination = segue.destination as? SettingsController {
-                    destination.inertia = image360Controller.inertia
-                    destination.pictureIndex = pictureSegmentedControl.selectedSegmentIndex
-                    destination.isOrientationViewHidden = image360Controller.isOrientationViewHidden
-                    destination.isDeviceMotionControlEnabled = image360Controller.isDeviceMotionControlEnabled
-                    destination.isGestureControlEnabled = image360Controller.isGestureControlEnabled
+            case "detailSegue":
+                if let destination = segue.destination as? DetailViewController {
+                    if whatType == 1 {
+                        destination.imageView = image360Controller.imageView
+                        destination.image = image360Controller.image
+                    }
+                    print("Dd") // how to pass data ?
                 }
+
+//            case "settings":
+//                if let destination = segue.destination as? SettingsController {
+//                    destination.inertia = image360Controller.inertia
+//                    destination.pictureIndex = pictureSegmentedControl.selectedSegmentIndex
+//                    destination.isOrientationViewHidden = image360Controller.isOrientationViewHidden
+//                    destination.isDeviceMotionControlEnabled = image360Controller.isDeviceMotionControlEnabled
+//                    destination.isGestureControlEnabled = image360Controller.isGestureControlEnabled
+//                }
             default:
                 ()
             }
@@ -90,63 +106,95 @@ class ViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if pictureSegmentedControl.selectedSegmentIndex < 0 {
-            pictureSegmentedControl.selectedSegmentIndex = 0
-            segmentChanged(sender: pictureSegmentedControl)
-        }
         
-        angleYSlider.isHidden = true
-        angleXZSlider.isHidden = true
-        fovSlider.isHidden = true
-        pictureSegmentedControl.isHidden = true
+        
+        
+        self.image360Controller2.image = UIImage(named: "picture2.jpg")
+        self.image360Controller.image = UIImage(named: "picture1.jpg")
+        self.image360Controller3.image = UIImage(named: "pano01.jpg")
+        self.image360Controller4.image = UIImage(named: "pano04.jpg")
+        
+        
+        
+//        if pictureSegmentedControl.selectedSegmentIndex < 0 {
+//            pictureSegmentedControl.selectedSegmentIndex = 0
+//            segmentChanged(sender: pictureSegmentedControl)
+//        }
+//    
+//        pictureSegmentedControl.isHidden = true
+        
+        // or for swift 2 +
+        
+        let gesture = UITapGestureRecognizer(target: self, action: "someAction:")
+
+        let gestureSwift2AndHigher = UITapGestureRecognizer(target: self, action:  #selector (self.someAction (_:)))
+        
+        self.container1.addGestureRecognizer(gesture)
         
     }
 
+    func someAction(sender:UITapGestureRecognizer){
+        print("click")
+        // do other task
+    }
+    
+    // or for Swift 3
+    func someAction(_ sender:UITapGestureRecognizer){
+        whatType = 1
+        performSegue(withIdentifier: "detailSegue", sender: whatType)
+        // do other task
+    }
+    
     @IBAction func unwindToViewController(segue: UIStoryboardSegue) {
         guard let settingsController = segue.source as? SettingsController else {
             assertionFailure("Unexpected controller's type")
             return
         }
         image360Controller.inertia = settingsController.inertia
-        pictureSegmentedControl.selectedSegmentIndex = settingsController.pictureIndex
+        //pictureSegmentedControl.selectedSegmentIndex = settingsController.pictureIndex
         image360Controller.isOrientationViewHidden = settingsController.isOrientationViewHidden
         image360Controller.isDeviceMotionControlEnabled = settingsController.isDeviceMotionControlEnabled
         image360Controller.isGestureControlEnabled = settingsController.isGestureControlEnabled
-        segmentChanged(sender: pictureSegmentedControl)
+        //segmentChanged(sender: pictureSegmentedControl)
+        print("?") // no show
     }
+    
+    
 
-    @IBAction func segmentChanged(sender: UISegmentedControl) {
-        let pictureURL: URL
-        switch sender.selectedSegmentIndex {
-        case 0:
-            pictureURL = picture1URL
-        case 1:
-            pictureURL = picture2URL
-        default:
-            assertionFailure("Unexpected selected segment index")
-            return
-        }
-
-        do {
-            let data = try Data(contentsOf: pictureURL)
-            
-            if let image = UIImage(data: data) {
-                self.image360Controller2.image = UIImage(named: "picture2.jpg")
-                self.image360Controller.image = image
-                self.image360Controller3.image = UIImage(named: "pano01.jpg")
-                self.image360Controller4.image = UIImage(named: "pano04.jpg")
-            } else {
-                NSLog("liveView - frameData is not image")
-            }
-        } catch  {
-
-        }
-    }
+//    @IBAction func segmentChanged(sender: UISegmentedControl) {
+//        let pictureURL: URL
+//        switch sender.selectedSegmentIndex {
+//        case 0:
+//            pictureURL = picture1URL
+//        case 1:
+//            pictureURL = picture2URL
+//        default:
+//            assertionFailure("Unexpected selected segment index")
+//            return
+//        }
+//
+//        do {
+//            let data = try Data(contentsOf: pictureURL)
+//            
+//            if let image = UIImage(data: data) {
+//                self.image360Controller2.image = UIImage(named: "picture2.jpg")
+//                self.image360Controller.image = image
+//                self.image360Controller3.image = UIImage(named: "pano01.jpg")
+//                self.image360Controller4.image = UIImage(named: "pano04.jpg")
+//            } else {
+//                NSLog("liveView - frameData is not image")
+//            }
+//        } catch  {
+//
+//        }
+//    }
+    /*
 
     @IBAction func angleXZSliderChanged(sender: UISlider) {
         image360Controller.imageView.observer = nil
         let imageView = image360Controller.imageView
         let newRotationAngleXZ = (imageView.rotationAngleXZMax - imageView.rotationAngleXZMin) * sender.value + imageView.rotationAngleXZMin
+        print("newRotationAngleXZ: ", newRotationAngleXZ) //
         image360Controller.imageView.setRotationAngleXZ(newValue: newRotationAngleXZ)
         image360Controller.imageView.observer = self
     }
@@ -155,6 +203,7 @@ class ViewController: UIViewController {
         image360Controller.imageView.observer = nil
         let imageView = image360Controller.imageView
         let newRotationAngleY = (imageView.rotationAngleYMax - imageView.rotationAngleYMin) * sender.value + imageView.rotationAngleYMin
+        print("newRotationAngleY: ", newRotationAngleY) //
         image360Controller.imageView.setRotationAngleY(newValue: newRotationAngleY)
         image360Controller.imageView.observer = self
     }
@@ -163,10 +212,17 @@ class ViewController: UIViewController {
         image360Controller.imageView.observer = nil
         let imageView = image360Controller.imageView
         let newFOV = (imageView.cameraFOVDegreeMax - imageView.cameraFOVDegreeMin) * sender.value + imageView.cameraFOVDegreeMin
+        
+        print("newFov: ", newFOV) //
+        
         image360Controller.imageView.setCameraFovDegree(newValue: newFOV)
         image360Controller.imageView.observer = self
     }
+ */
 }
+
+/*
+
 
 // MARK: - Image360ViewObserver
 extension ViewController: Image360ViewObserver {
@@ -182,3 +238,5 @@ extension ViewController: Image360ViewObserver {
         angleXZSlider.value = (rotationAngleXZ - view.rotationAngleXZMin) / (view.rotationAngleXZMax - view.rotationAngleXZMin)
     }
 }
+*/
+

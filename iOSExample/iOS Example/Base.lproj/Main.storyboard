@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -38,46 +37,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yji-c7-R8Z">
-                                <rect key="frame" x="0.0" y="79" width="375" height="139"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="Yji-c7-R8Z" secondAttribute="height" multiplier="2.7" id="d7V-qF-TZT"/>
-                                </constraints>
-                                <connections>
-                                    <segue destination="iPG-5Z-Aol" kind="embed" identifier="image360" id="eYk-uY-RJV"/>
-                                </connections>
-                            </containerView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="YC3-37-IGX">
-                                <rect key="frame" x="15" y="624" width="345" height="29"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="28" id="7qV-9q-RmY"/>
-                                </constraints>
-                                <segments>
-                                    <segment title="Picture 1"/>
-                                    <segment title="Picture 2"/>
-                                </segments>
-                                <connections>
-                                    <action selector="segmentChangedWithSender:" destination="BYZ-38-t0r" eventType="valueChanged" id="AWl-Xn-c0U"/>
-                                </connections>
-                            </segmentedControl>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="fdc-QQ-pPR">
-                                <rect key="frame" x="13" y="233" width="349" height="31"/>
-                                <connections>
-                                    <action selector="angleXZSliderChangedWithSender:" destination="BYZ-38-t0r" eventType="valueChanged" id="ma6-fJ-ZlF"/>
-                                </connections>
-                            </slider>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="CoF-Km-VaZ">
-                                <rect key="frame" x="13" y="270.5" width="349" height="31"/>
-                                <connections>
-                                    <action selector="angleYSliderChangedWithSender:" destination="BYZ-38-t0r" eventType="valueChanged" id="gah-Bx-Gav"/>
-                                </connections>
-                            </slider>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.21428570999999999" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="rea-x1-3cz">
-                                <rect key="frame" x="13" y="308.5" width="349" height="31"/>
-                                <connections>
-                                    <action selector="fovSliderChangedWithSender:" destination="BYZ-38-t0r" eventType="valueChanged" id="zNN-Sc-HED"/>
-                                </connections>
-                            </slider>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TCb-Gf-A8N">
                                 <rect key="frame" x="0.0" y="218" width="375" height="140"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -86,57 +45,65 @@
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ku4-9T-s2K">
-                                <rect key="frame" x="0.0" y="364" width="375" height="140"/>
+                                <rect key="frame" x="0.0" y="361" width="375" height="140"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <connections>
                                     <segue destination="gwB-Sv-ESk" kind="embed" identifier="image3" id="fbi-2B-eOF"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yob-kh-ZIC">
-                                <rect key="frame" x="0.0" y="508" width="375" height="140"/>
+                                <rect key="frame" x="0.0" y="505" width="375" height="140"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <connections>
                                     <segue destination="GRC-hi-zkh" kind="embed" identifier="image4" id="it6-N4-KkG"/>
                                 </connections>
                             </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IOs-1N-0wn">
+                                <rect key="frame" x="0.0" y="75" width="375" height="140"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <connections>
+                                    <segue destination="FUm-61-9cT" kind="embed" identifier="image1" id="DEf-3w-XEK"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="Yji-c7-R8Z" secondAttribute="trailing" id="0QD-sb-Kof"/>
-                            <constraint firstItem="Yji-c7-R8Z" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="0wy-h4-Qes"/>
-                            <constraint firstItem="CoF-Km-VaZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="15" id="AcX-xF-0lS"/>
-                            <constraint firstAttribute="trailing" secondItem="rea-x1-3cz" secondAttribute="trailing" constant="15" id="FZ5-KI-RaE"/>
-                            <constraint firstAttribute="trailing" secondItem="CoF-Km-VaZ" secondAttribute="trailing" constant="15" id="Kkk-W9-Zg8"/>
-                            <constraint firstAttribute="trailing" secondItem="YC3-37-IGX" secondAttribute="trailing" constant="15" id="KuJ-vA-WIZ"/>
-                            <constraint firstItem="fdc-QQ-pPR" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="15" id="a2t-Gz-zOf"/>
-                            <constraint firstItem="rea-x1-3cz" firstAttribute="top" secondItem="CoF-Km-VaZ" secondAttribute="bottom" constant="8" id="bxZ-Sw-ahs"/>
-                            <constraint firstItem="Yji-c7-R8Z" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="15" id="dt1-Do-MfQ"/>
-                            <constraint firstItem="YC3-37-IGX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="15" id="hFS-jH-FCe"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="YC3-37-IGX" secondAttribute="bottom" constant="15" id="hKK-fR-Upr"/>
-                            <constraint firstItem="fdc-QQ-pPR" firstAttribute="top" secondItem="Yji-c7-R8Z" secondAttribute="bottom" constant="15" id="jdk-au-k0a"/>
-                            <constraint firstAttribute="trailing" secondItem="fdc-QQ-pPR" secondAttribute="trailing" constant="15" id="ocG-LV-ee8"/>
-                            <constraint firstItem="Yji-c7-R8Z" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pmY-EF-dkr"/>
-                            <constraint firstItem="CoF-Km-VaZ" firstAttribute="top" secondItem="fdc-QQ-pPR" secondAttribute="bottom" constant="8" id="scb-P9-fiR"/>
-                            <constraint firstItem="rea-x1-3cz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="15" id="uWz-bk-jwu"/>
-                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="i9h-41-opd">
-                        <barButtonItem key="rightBarButtonItem" title="Settings" id="rTX-XT-oXE">
-                            <connections>
-                                <segue destination="85w-Ka-FdT" kind="show" identifier="settings" id="1ll-4p-U3J"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="i9h-41-opd"/>
                     <connections>
-                        <outlet property="angleXZSlider" destination="fdc-QQ-pPR" id="Aa7-CX-ssl"/>
-                        <outlet property="angleYSlider" destination="CoF-Km-VaZ" id="PET-oa-iWj"/>
-                        <outlet property="fovSlider" destination="rea-x1-3cz" id="uBm-1d-SQS"/>
-                        <outlet property="pictureSegmentedControl" destination="YC3-37-IGX" id="Q0Z-7e-ysL"/>
+                        <outlet property="container1" destination="IOs-1N-0wn" id="S7c-4e-1dQ"/>
+                        <segue destination="exw-o5-usB" kind="show" identifier="detailSegue" id="P5h-6I-cfK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="32.799999999999997" y="38.23088455772114"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="7pD-U4-Kon">
+            <objects>
+                <viewController storyboardIdentifier="detailView" id="exw-o5-usB" customClass="DetailViewController" customModule="iOS_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="v3c-4x-xLW"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZqK-1u-COs"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0lk-zi-xcD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o4g-LA-V80">
+                                <rect key="frame" x="0.0" y="72" width="375" height="587"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <connections>
+                                    <segue destination="bbE-L6-rcn" kind="embed" identifier="detailContainerSegue" id="nXg-03-ZzR"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PFz-Ng-Zll" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="896.79999999999995" y="37.331334332833585"/>
         </scene>
         <!--Settings-->
         <scene sceneID="Q6w-wh-sZr">
@@ -278,25 +245,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jmy-pk-rxH" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="hpC-px-dke" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="860" y="-423.23838080959524"/>
-        </scene>
-        <!--Image360 Controller-->
-        <scene sceneID="Ing-te-7vL">
-            <objects>
-                <viewController id="iPG-5Z-Aol" customClass="Image360Controller" customModule="Image360" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="IDG-Yp-S0y"/>
-                        <viewControllerLayoutGuide type="bottom" id="niu-gy-YHb"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="K8Q-MH-vik">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="139"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="C2B-oy-rgK" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="860" y="113"/>
+            <point key="canvasLocation" x="794" y="-598"/>
         </scene>
         <!--Image360 Controller-->
         <scene sceneID="kvb-Er-JKp">
@@ -314,7 +263,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kby-O5-Z6P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="860" y="303"/>
+            <point key="canvasLocation" x="143" y="-578"/>
         </scene>
         <!--Image360 Controller-->
         <scene sceneID="mKy-uX-6tQ">
@@ -338,6 +287,10 @@
         <scene sceneID="9IV-w7-wU2">
             <objects>
                 <viewController id="GRC-hi-zkh" customClass="Image360Controller" customModule="Image360" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wny-yo-EQw"/>
+                        <viewControllerLayoutGuide type="bottom" id="Khg-eB-SoB"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="qxY-pZ-72W">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="140"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -347,6 +300,34 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sA4-Nh-2ZF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-273" y="497"/>
+        </scene>
+        <!--Image360 Controller-->
+        <scene sceneID="lEo-gk-ndJ">
+            <objects>
+                <viewController id="FUm-61-9cT" customClass="Image360Controller" customModule="Image360" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="N1W-Xv-2hy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="140"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OpN-k2-2W4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-374" y="-397"/>
+        </scene>
+        <!--Image360 Controller-->
+        <scene sceneID="2ZJ-fF-Xe9">
+            <objects>
+                <viewController id="bbE-L6-rcn" customClass="Image360Controller" customModule="Image360" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Oby-Ym-BIO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="587"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ts7-pu-aOg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1681" y="37"/>
         </scene>
     </scenes>
 </document>

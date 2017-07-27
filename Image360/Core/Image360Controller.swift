@@ -173,7 +173,7 @@ public class Image360Controller: UIViewController {
         image360GLController.view.autoresizingMask = [.flexibleWidth,.flexibleHeight]
         image360GLController.didMove(toParentViewController: self)
         
-        view.addSubview(orientationView)
+        //view.addSubview(orientationView)
         orientationView.frame = CGRect(origin: CGPoint(x: view.bounds.maxX - orientationView.frame.size.width - 8,
                                                        y: view.bounds.midY - orientationView.bounds.midY),
                                        size: orientationView.frame.size)
@@ -203,7 +203,7 @@ public class Image360Controller: UIViewController {
 
         super.viewDidDisappear(animated)
         isMotionControllerEnabled = motionController.isEnabled
-        motionController.isEnabled = false
+        motionController.isEnabled = true
         isAppear = false
     }
 

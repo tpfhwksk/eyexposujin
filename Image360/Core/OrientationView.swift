@@ -68,6 +68,7 @@ internal class OrientationView: UIView {
         }
     }
 }
+/*
 
 extension OrientationView: Image360ViewObserver {
     public func image360View(_ view: Image360View, didRotateOverXZ rotationAngleXZ: Float) {
@@ -81,3 +82,4 @@ extension OrientationView: Image360ViewObserver {
         self.setNeedsDisplay()
     }
 }
+ */

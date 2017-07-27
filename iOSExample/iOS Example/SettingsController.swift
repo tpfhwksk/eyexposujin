@@ -38,8 +38,8 @@ class SettingsController: UIViewController {
     var inertia: Float = 0
     var pictureIndex: Int = 0
     var isOrientationViewHidden: Bool = false
-    var isDeviceMotionControlEnabled: Bool = false
-    var isGestureControlEnabled: Bool = false
+    var isDeviceMotionControlEnabled: Bool = true
+    var isGestureControlEnabled: Bool = true
 
     private var initInertia: Float!
     private var initPictureIndex: Int!

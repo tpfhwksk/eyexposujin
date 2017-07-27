@@ -35,6 +35,7 @@ protocol Image360ViewTouchesHandler: class {
     func image360View(_ view: Image360View, touchesEnded touches: Set<UITouch>, with event: UIEvent?)
 }
 
+/*
 /// ## Image360ViewObserver
 /// The `Image360ViewObserver` protocol defines methods that you use to manage
 /// reactions to changes of basic fields of `Image360View`.
@@ -46,6 +47,7 @@ public protocol Image360ViewObserver: class {
     /// Sent when new value of `cameraFovDegree` was set.
     func image360View(_ view: Image360View, didChangeFOV cameraFov: Float)
 }
+*/
 
 /// ## Image360View
 /// This view presentes a special view to dysplay 360° panoramic image.
@@ -90,12 +92,18 @@ public class Image360View: GLKView {
 
     /// Camera "Field Of View". Degrees. Readonly.
     /// Use `setCameraFovDegree(newValue:)` to change this value.
-    public private(set) var cameraFovDegree: Float = 45.0 {
+    /*
+    public private(set) var cameraFovDegree: Float = 45.0
+    
+        {
         didSet {
-            observer?.image360View(self, didChangeFOV: cameraFovDegree)
+            //observer?.image360View(self, didChangeFOV: cameraFovDegree)
             orientationView?.image360View(self, didChangeFOV: cameraFovDegree)
         }
     }
+ */
+    public var cameraFovDegree: Float = 45.0
+    
     /// Sets new value to `cameraFovDegree`
     /// - parameter newValue: New value of `cameraFovDegree` to be set.
     /// Could be ignored/changed in case it's out of range 30 .. 100
@@ -121,12 +129,17 @@ public class Image360View: GLKView {
     // MARK: Rotation
     /// Rotation angle relative to XZ-plane. Radians. Readonly.
     /// Use `setRotationAngleXZ(newValue:)` to change this value.
+    /*
     public private(set) var rotationAngleXZ: Float = 0.0 {
         didSet {
             observer?.image360View(self, didRotateOverXZ: rotationAngleXZ)
             orientationView?.image360View(self, didRotateOverXZ: rotationAngleXZ)
         }
     }
+ */
+    
+    public var rotationAngleXZ: Float = 0.0
+    
     /// Sets new value to `rotationAngleXZ`
     /// - parameter newValue: New value of `rotationAngleXZ` to be set.
     /// Could be ignored/changed in case it's out of range -π .. π
@@ -146,12 +159,15 @@ public class Image360View: GLKView {
 
     /// Rotation angle relative to Y-axis. Radians. Readonly.
     /// Use `setRotationAngleY(newValue:)` to change this value.
-    public private(set) var rotationAngleY: Float = 0.0 {
-        didSet {
-            observer?.image360View(self, didRotateOverY: rotationAngleY)
-            orientationView?.image360View(self, didRotateOverY: rotationAngleY)
-        }
-    }
+//    public private(set) var rotationAngleY: Float = 0.0 {
+//        didSet {
+//            observer?.image360View(self, didRotateOverY: rotationAngleY)
+//            orientationView?.image360View(self, didRotateOverY: rotationAngleY)
+//        }
+//    }
+    
+    public var rotationAngleY: Float = 0.0
+    
     /// Sets new value to `rotationAngleY`
     /// - parameter newValue: New value of `rotationAngleY` to be set.
     /// Could be ignored/changed in case it's out of range -π/2 .. π/2
@@ -170,7 +186,7 @@ public class Image360View: GLKView {
     public let rotationAngleYMin = -Float.pi / 2 + 0.01 //0.01 to prevent screen drag
 
     weak var touchesHandler: Image360ViewTouchesHandler?
-    public weak var observer: Image360ViewObserver?
+    //public weak var observer: Image360ViewObserver?
     
     weak var orientationView: OrientationView?
 
