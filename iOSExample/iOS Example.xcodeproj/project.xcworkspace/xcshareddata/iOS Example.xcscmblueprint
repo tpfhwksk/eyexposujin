@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "5FB7CA50D8E20199AFE3D54D90FC19A273D3967B",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "5FB7CA50D8E20199AFE3D54D90FC19A273D3967B" : 9223372036854775807,
+    "DE95B932BBAD5BE100F70121D774A85C62F30BFD" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "91A5084D-2EEA-4667-8635-751F0D2ADF62",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "5FB7CA50D8E20199AFE3D54D90FC19A273D3967B" : "Image360\/",
+    "DE95B932BBAD5BE100F70121D774A85C62F30BFD" : "eye_list_sujin\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "iOS Example",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "iOS Example\/iOS Example.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Ssimboss\/Image360.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "5FB7CA50D8E20199AFE3D54D90FC19A273D3967B"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/tpfhwksk\/eye_list_sujin.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "DE95B932BBAD5BE100F70121D774A85C62F30BFD"
+    }
+  ]
+}
