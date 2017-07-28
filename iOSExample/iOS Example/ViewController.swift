@@ -50,6 +50,9 @@ class ViewController: UIViewController {
     @IBOutlet var image360Controller4: Image360Controller!
 
     
+    @IBOutlet weak var container4: UIView!
+    @IBOutlet weak var container3: UIView!
+    @IBOutlet weak var container2: UIView!
     @IBOutlet weak var container1: UIView!
     
     var whatType: Int = 0
@@ -83,13 +86,24 @@ class ViewController: UIViewController {
                 }
             case "detailSegue":
                 if let destination = segue.destination as? DetailViewController {
-                    if whatType == 1 {
+                    switch whatType {
+                    case 1:
                         destination.imageView = image360Controller.imageView
                         destination.image = image360Controller.image
-                    }
-                    print("Dd") // how to pass data ?
+                    case 2:
+                        destination.imageView = image360Controller2.imageView
+                        destination.image = image360Controller2.image
+                    case 3:
+                        destination.imageView = image360Controller3.imageView
+                        destination.image = image360Controller3.image
+                    case 4:
+                        destination.imageView = image360Controller4.imageView
+                        destination.image = image360Controller4.image
+                    default:
+                        ()
+                   // print("Dd") // how to pass data ?
                 }
-
+                }
 //            case "settings":
 //                if let destination = segue.destination as? SettingsController {
 //                    destination.inertia = image360Controller.inertia
@@ -126,11 +140,18 @@ class ViewController: UIViewController {
         // or for swift 2 +
         
         let gesture = UITapGestureRecognizer(target: self, action: "someAction:")
+        let gesture2 = UITapGestureRecognizer(target: self, action: "someAction2:")
+        let gesture3 = UITapGestureRecognizer(target: self, action: "someAction3:")
+        let gesture4 = UITapGestureRecognizer(target: self, action: "someAction4:")
+
 
         let gestureSwift2AndHigher = UITapGestureRecognizer(target: self, action:  #selector (self.someAction (_:)))
         
         self.container1.addGestureRecognizer(gesture)
-        
+        self.container2.addGestureRecognizer(gesture2)
+        self.container3.addGestureRecognizer(gesture3)
+        self.container4.addGestureRecognizer(gesture4)
+
     }
 
     func someAction(sender:UITapGestureRecognizer){
@@ -141,6 +162,21 @@ class ViewController: UIViewController {
     // or for Swift 3
     func someAction(_ sender:UITapGestureRecognizer){
         whatType = 1
+        performSegue(withIdentifier: "detailSegue", sender: whatType)
+        // do other task
+    }
+    func someAction2(_ sender:UITapGestureRecognizer){
+        whatType = 2
+        performSegue(withIdentifier: "detailSegue", sender: whatType)
+        // do other task
+    }
+    func someAction3(_ sender:UITapGestureRecognizer){
+        whatType = 3
+        performSegue(withIdentifier: "detailSegue", sender: whatType)
+        // do other task
+    }
+    func someAction4(_ sender:UITapGestureRecognizer){
+        whatType = 4
         performSegue(withIdentifier: "detailSegue", sender: whatType)
         // do other task
     }

@@ -71,6 +71,9 @@
                     <navigationItem key="navigationItem" id="i9h-41-opd"/>
                     <connections>
                         <outlet property="container1" destination="IOs-1N-0wn" id="S7c-4e-1dQ"/>
+                        <outlet property="container2" destination="TCb-Gf-A8N" id="ZbC-Lr-DcS"/>
+                        <outlet property="container3" destination="Ku4-9T-s2K" id="ioj-jS-1Nv"/>
+                        <outlet property="container4" destination="Yob-kh-ZIC" id="97j-hO-iEZ"/>
                         <segue destination="exw-o5-usB" kind="show" identifier="detailSegue" id="P5h-6I-cfK"/>
                     </connections>
                 </viewController>
